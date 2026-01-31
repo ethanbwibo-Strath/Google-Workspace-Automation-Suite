@@ -1,13 +1,4 @@
 First Name [Required],Last Name [Required],Email Address [Required],Status,Deleted
-Dns,Joska,joska.dns@mohiafrica.org,Archived,TRUE
-Doris,Chemutai,doris.chemutai@mohiafrica.org,Archived,FALSE
-Dorothy,Kagore,dorothy.kagore@mohiafrica.org,Archived,FALSE
-Dorothy,Rono,dorothy.rono@mohiafrica.org,Archived,FALSE
-Doug,Priest,doug.priest@mohiafrica.org,Archived,FALSE
-Douglas,Were,douglas.were@mohiafrica.org,Archived,FALSE
-Edel,Nasimiyu,edel.nasimiyu@mohiafrica.org,Archived,FALSE
-Edith,Akinyi,edith.akinyi@mohiafrica.org,Archived,FALSE
-Edwin,Wasike,edwin.wasike@mohiafrica.org,Archived,FALSE
 Edwin,Jananga,edwin.jananga@mohiafrica.org,Archived,FALSE
 Edwin,Ogola,edwin.ogola@mohiafrica.org,Archived,FALSE
 Edwine,Kalasinga,edwine.kalasinga@mohiafrica.org,Archived,FALSE
