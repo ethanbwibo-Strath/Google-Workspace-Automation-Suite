@@ -55,7 +55,7 @@ During my IT internship at Missions of Hope (MOHI) International, I was tasked w
 
 1. **Prepare your Data:**
    - Ensure your CSV file is in the root directory.
-   - By default, the script looks for a column header named `Email Address [Required]`.
+   - By default, the script looks for a column header named `Email Address`.
    - **Customization Tip:** If your CSV uses a different header (e.g., "User Email"), simply open `delete_users.py` and change the key in the following line to match your column name:
      ```python
      email = row['Your_Column_Name_Here']

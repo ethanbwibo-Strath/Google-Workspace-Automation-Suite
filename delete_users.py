@@ -39,7 +39,7 @@ def main():
             
         # Edit below to match your CSV column name for email addresses
             for row in reader:
-                email = row['Email Address [Required]']
+                email = row['Email Address']
                 try:
                     # The actual delete command
                     service.users().delete(userKey=email).execute()
