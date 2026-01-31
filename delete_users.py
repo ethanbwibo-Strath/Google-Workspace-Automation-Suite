@@ -37,6 +37,7 @@ def main():
             
             print(f"Starting deletion process for users in {csv_file_path}...")
             
+        # Edit below to match your CSV column name for email addresses
             for row in reader:
                 email = row['Email Address [Required]']
                 try:
