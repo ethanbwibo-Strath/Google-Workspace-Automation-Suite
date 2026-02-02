@@ -1,79 +1,45 @@
-# Google Workspace Bulk User Deletion Tool
+# Google Workspace Automation Suite
 
-A Python-based automation utility designed to streamline the process of offboarding large volumes of users from a Google Workspace domain using the Google Admin SDK Directory API.
-
-## 📌 Project Overview
-During my IT internship at Missions of Hope (MOHI) International, I was tasked with deleting **391 archived user accounts**. Manually searching and deleting each account via the Admin Console would have been inefficient and prone to human error. I developed this script to automate the process, reducing a multi-hour task to just a few minutes of execution time.
+A comprehensive Python-based toolkit for managing the user lifecycle within a Google Workspace domain. Developed during my IT internship at MOHI to automate onboarding, access control, and offboarding.
 
 ## 🚀 Features
-- **Bulk Processing:** Reads user emails from a CSV export and processes deletions in a loop.
-- **OAuth 2.0 Authentication:** Implements secure authorization via Google Cloud Console.
-- **Error Handling:** Gracefully handles instances where users may have already been deleted or do not exist (HTTP 404 errors).
-- **Virtual Environment Setup:** Ensures dependency isolation for a clean development workspace.
+- **Onboarding:** Automatically sends HTML-formatted welcome emails to new staff with login credentials.
+- **Access Control:** Bulk-adds users to Google Groups based on department or role.
+- **Offboarding:** Automates the deletion of archived or departed user accounts.
+- **Security:** Uses OAuth 2.0 and `.gitignore` to protect sensitive admin credentials.
 
 ## 🛠️ Technologies Used
 - **Language:** Python 3.x
-- **APIs:** Google Admin SDK (Directory API)
+- **APIs:** Google Admin SDK (Directory API), Gmail API
 - **Libraries:** `google-api-python-client`, `google-auth-oauthlib`
-- **Tools:** VS Code, Git, Google Cloud Console
 
-## 📋 Prerequisites
-- A Google Workspace Admin account with privileges to delete users.
-- A project created in the [Google Cloud Console](https://console.cloud.google.com/) with the **Admin SDK API** enabled.
-- `credentials.json` file downloaded from the Cloud Console (OAuth 2.0 Client ID).
+## 🔧 Project Structure
+```text
+User-Management/
+├── scripts/
+│   ├── delete_users.py         # Offboarding logic
+│   ├── manage_groups.py         # Group management logic
+│   └── send_welcome_emails.py   # Onboarding/Gmail logic
+├── templates/
+│   └── welcome_template.html    # Email HTML template
+├── requirements.txt             # Dependencies
+└── .gitignore                   # Security exclusions
+```
 
+## 📖 Setup & Usage
 
-
-## 🔧 Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/User-Management.git](https://github.com/yourusername/User-Management.git)
-   cd User-Management
-   ```
-
-2. **Set up the Virtual Environment:**
-   ```bash
-   python -m venv venv
-
-   # Windows
-   .\venv\Scripts\activate
-
-   # Mac/Linux
-   source venv/bin/activate
-   ```
-
-3. **Install Dependencies:**
+1. **Install Dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Add Credentials:**
-   Place your `credentials.json` in the root directory.
+2. **Execution:**
+   - **To Offboard:** `python scripts/delete_users.py`
+   - **To Manage Groups:** `python scripts/manage_groups.py`
+   - **To Onboard:** `python scripts/send_welcome_emails.py`
 
-## 📖 Usage
+3. **Customization:**
+   Edit `templates/welcome_template.html` to change the branding of onboarding emails without modifying the Python logic.
 
-1. **Prepare your Data:**
-   - Ensure your CSV file is in the root directory.
-   - By default, the script looks for a column header named `Email Address`.
-   - **Customization Tip:** If your CSV uses a different header (e.g., "User Email"), simply open `delete_users.py` and change the key in the following line to match your column name:
-     ```python
-     email = row['Your_Column_Name_Here']
-     ```
-
-2. **Run the Script:**
-   ```bash
-   python delete_users.py
-   ```
-
-3. **Authentication:**
-   - A browser window will open automatically. Sign in with your authorized admin credentials.
-   - If prompted with "Google hasn't verified this app," click **Advanced** -> **Go to [Project Name] (unsafe)** to grant permissions.
-
-4. **Monitor Deletion:**
-   - The terminal will output the status of each deletion in real-time.
-
-
-
-## 🔒 Security Note
-This repository utilizes a `.gitignore` file to ensure that sensitive files such as `credentials.json`, `token.json`, and private CSV data are never uploaded to version control.
+## 🔒 Security
+Sensitive files (`credentials.json`, `token.json`, and CSV data) are excluded from version control to maintain domain security.
